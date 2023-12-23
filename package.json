@@ -1,0 +1,27 @@
+{
+  "name": "burp",
+  "version": "1.0.0",
+  "description": "Food Delivery Website inspired by Swiggy",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kunal-Jadhav-1/Burp.git"
+  },
+  "author": "Kunal Jadhav",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Kunal-Jadhav-1/Burp/issues"
+  },
+  "homepage": "https://github.com/Kunal-Jadhav-1/Burp#readme",
+  "devDependencies": {
+    "parcel": "^2.10.3"
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  }
+}
