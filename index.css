@@ -64,3 +64,9 @@
 
     
 }
+
+.filter-btn{
+    cursor: pointer;
+    margin: 10px;
+    padding: 6px;
+}

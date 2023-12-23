@@ -1,37 +1,3 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
-
-const Header = () => {
-    return (
-        <div className="header">
-            <div className="logo-container">
-                <img className="logo" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSDBgHsn0VgvD447edSvxzp6JNmmRo3jZbZFM6-mbSXegfARQEKDZI0udaSpUvGaLHqOJ8&usqp=CAU"></img>
-            </div>
-            <div className="navi">
-                <ul>
-                    <li>Name</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
-                </ul>
-            </div>
-        </div>
-    );
-};
-
-const Restaurants = (props) => {
-    const {resData}=props;
-    const {name,avgRating,cuisines,costForTwo,areaName}=resData?.info
-    return (
-        <div className="res-card">
-            <img className="resImg" src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+resData.info.cloudinaryImageId}></img>
-            <h3 className="text">{name} | Rating-{avgRating} *</h3>
-            <h5 className="text">Cuisine - {cuisines.join(",")}</h5>
-            <h5 className="text">Cost - {costForTwo} | Area - {areaName}</h5>
-            <h5 className="text"></h5>
-        </div>
-    )
-}
 
 const resList = [
     {
@@ -1417,33 +1383,4 @@ const resList = [
     },
   ]
 
-const Body = () => {
-    return (
-        <div className="body">
-            <div className="search">Search</div>
-            <div className="res-con">
-                {
-                   resList.map(restaurant => <Restaurants key={restaurant.info.id} resData={restaurant}/>) 
-                    // always remember to give unique key while looping on any element
-                }
-                
-            </div>
-        </div>
-    );
-
-};
-
-
-const AppLayout = () => {
-    return (
-        <div className="app">
-            <Header />
-            <Body />
-        </div>
-    );
-
-};
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-
-root.render(<AppLayout />);
+export default resList;
