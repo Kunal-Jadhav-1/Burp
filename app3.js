@@ -1423,7 +1423,8 @@ const Body = () => {
             <div className="search">Search</div>
             <div className="res-con">
                 {
-                   resList.map(restaurant => <Restaurants resData={restaurant}/>) 
+                   resList.map(restaurant => <Restaurants key={restaurant.info.id} resData={restaurant}/>) 
+                    // always remember to give unique key while looping on any element
                 }
                 
             </div>

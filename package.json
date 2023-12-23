@@ -18,7 +18,8 @@
   },
   "homepage": "https://github.com/Kunal-Jadhav-1/Burp#readme",
   "devDependencies": {
-    "parcel": "^2.10.3"
+    "parcel": "^2.10.3",
+    "process": "^0.11.10"
   },
   "dependencies": {
     "react": "^18.2.0",
