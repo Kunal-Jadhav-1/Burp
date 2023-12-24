@@ -6,16 +6,13 @@ import { useState } from "react";
 const Body = () => {
 
     const [listOfRestaurants, setListOfRestaurants] = useState(resList);
-    let filteredList;
     return (
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
-                    console.log("Clicked");
-                    filteredList=listOfRestaurants.filter(
+                    setListOfRestaurants(listOfRestaurants.filter(
                         (res) => res.info.avgRating > 4.3
-                        );
-                    setListOfRestaurants(filteredList); 
+                        )); 
                 }} 
                 > Top Rated </button>
             </div>
