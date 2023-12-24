@@ -11,6 +11,7 @@ const Body = () => {
         <div className="body">
             <div className="filter">
                 <button className="filter-btn" onClick={() => {
+                    console.log("Clicked");
                     filteredList=listOfRestaurants.filter(
                         (res) => res.info.avgRating > 4.3
                         );
