@@ -190,3 +190,6 @@
 .menu > ul > li {
     height: 100px;
 }
+.rightNav2 #homeLnk {
+    list-style-image: url();
+}

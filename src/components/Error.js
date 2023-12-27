@@ -5,8 +5,8 @@ const Error = () => {
     console.log(err);
   return (
     <div className="error">
-        <h1>Oops....You Fucked Up</h1>
-        <h2>You Are Useless and A Total Failure</h2>
+        <h1>Oops....You Messed Up</h1>
+        
         <h3>{err.status} : {err.statusText}</h3>
     </div>
   )
