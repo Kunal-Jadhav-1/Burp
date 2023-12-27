@@ -1,14 +1,13 @@
 // import { LOGO_URL } from "../utils/constants";
 import logo from '../images/logo.png';
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 const Header = () => {
-    
-    const [btnLog,setBtnLog]=useState("LogIn");
 
-    useEffect(() => {
-        console.log("use effect called");
-    } , [btnLog]);
+    const [btnLog, setBtnLog] = useState("LogIn");
+
+
 
     return (
         <div className="header">
@@ -17,10 +16,15 @@ const Header = () => {
             </div>
             <div className="navi">
                 <ul>
-                    <li>Name</li>
-                    <li>About Us</li>
-                    <li>Contact Us</li>
-                    <li>Cart</li>
+                    <li>
+                        <Link to="/">Home</Link></li>
+                    <li>
+                        <Link to="/about">About Us</Link></li>
+                    <li>
+                        <Link to="/contact-us">Contact Us</Link></li>
+                    <li>
+                        <Link to="/cart">Cart</Link>
+                    </li>
                     <button className='login' onClick={() => {
                         btnLog === "LogIn" ? setBtnLog("LogOut") : setBtnLog("LogIn");
                     }}>

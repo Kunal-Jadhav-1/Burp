@@ -1,6 +1,7 @@
 import Restaurants from "./Restaurants";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
+import { Link } from 'react-router-dom';
 
 
 const Body = () => {
@@ -54,7 +55,7 @@ const Body = () => {
             </div>
             <div className="res-con">
                 {
-                    filteredRestaurants.map(restaurant => <Restaurants key={restaurant.info.id} resData={restaurant} />)
+                    filteredRestaurants.map(restaurant =><Link key={restaurant.info.id} to={"/restaurants/"+ restaurant.info.id}> <Restaurants resData={restaurant} /></Link>)
                     // always remember to give unique key while looping on any element
                 }
 
