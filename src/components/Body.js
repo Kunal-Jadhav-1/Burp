@@ -14,6 +14,10 @@ const Body = () => {
 
     useEffect(() => {
         fetchData();
+
+        return () =>{
+            //This functions is called when we unmount the component
+        }
     }, []);
 
     const fetchData = async () => {
@@ -23,7 +27,7 @@ const Body = () => {
         );
 
         const json = await data.json();
-        console.log(json)
+        //console.log(json)
         //Optional Chaining   
         setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
         setfilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);

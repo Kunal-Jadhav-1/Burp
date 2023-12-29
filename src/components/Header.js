@@ -17,13 +17,13 @@ const Header = () => {
             <div className="navi">
                 <ul>
                     <li>
-                        <Link to="/">Home</Link></li>
+                        <Link to="/" className='link'>Home</Link></li>
                     <li>
-                        <Link to="/about">About Us</Link></li>
+                        <Link to="/about" className='link'>About Us</Link></li>
                     <li>
-                        <Link to="/contact-us">Contact Us</Link></li>
+                        <Link to="/contact-us" className='link'>Contact Us</Link></li>
                     <li>
-                        <Link to="/cart">Cart</Link>
+                        <Link to="/cart" className='link'>Cart</Link>
                     </li>
                     <button className='login' onClick={() => {
                         btnLog === "LogIn" ? setBtnLog("LogOut") : setBtnLog("LogIn");
