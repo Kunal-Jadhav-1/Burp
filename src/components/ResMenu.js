@@ -1,32 +1,21 @@
-import { useState, useEffect } from 'react';
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
+import useResMenu from '../utils/useResMenu';
 import { CDN_URL2 } from '../utils/constants';
 
 const ResMenu = () => {
-
-    const [resDetails, setResDetails] = useState(null);
+    //getting the restaurant id
     const { resid } = useParams();
     console.log(resid)
 
-    useEffect(() => {
-        fetchMenu();
-    }, []);
-
-    const fetchMenu = async () => {
-        const menu = await fetch(
-            // https://thingproxy.freeboard.io/fetch/
-            "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.6606495&lng=73.73215850000001&restaurantId=" + resid + "&catalog_qa=undefined&submitAction=ENTER"
-        );
-
-        const json = await menu.json();
-        console.log(json);
-
-        setResDetails(json?.data);
-    };
+    // import data using useResMenu hook
+    const resDetails = useResMenu(resid);
+    
     if (resDetails === null) {
         return <Shimmer />
     }
+
+    //deconstructing necessary components
     const { name, cuisines, costForTwoMessage } = resDetails?.cards?.[0]?.card?.card?.info || {};
     if (resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards) {
         itemCards = resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards;
