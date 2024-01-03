@@ -15,11 +15,11 @@ const useResMenu = (resid) => {
     const fetchMenu = async () => {
         const menu = await fetch(
             // https://thingproxy.freeboard.io/fetch/
-            "https://thingproxy.freeboard.io/fetch/https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.6606495&lng=73.73215850000001&restaurantId=" + resid + "&catalog_qa=undefined&submitAction=ENTER"
+            "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=18.6606495&lng=73.73215850000001&restaurantId=" + resid + "&catalog_qa=undefined&submitAction=ENTER"
         );
 
         const json = await menu.json();
-        console.log(json);
+       // console.log(json);
 
         setResDetails(json?.data);
     };

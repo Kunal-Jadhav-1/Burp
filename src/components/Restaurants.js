@@ -1,17 +1,19 @@
 import { CDN_URL } from "../utils/constants";
 
 const Restaurants = (props) => {
-    const {resData}=props;
-    const {name,avgRating,cuisines,costForTwo,areaName}=resData?.info
+    const { resData } = props;
+    const { name, avgRating, cuisines, costForTwo, areaName } = resData?.info
     return (
-        <div className="res-card">
-            <img className="resImg" src={CDN_URL+resData.info.cloudinaryImageId}></img>
-            <h3 className="text">{name} | Rating-{avgRating}</h3>
-            <h5 className="textC">Cuisine - {cuisines.join(",")}</h5>
-            <h5 className="text">Cost - {costForTwo} | Area - {areaName}</h5>
-            <h5 className="text"></h5>
+        <div className="m-4 p-2 w-64 h-80 bg-gray-150 rounded-lg  hover:shadow-gray-700 hover:shadow-2xl hover:border border-gray-200 hover:bg-indigo-50">
+            <img className="h-36 w-60 my-1 rounded-md cursor-pointer" src={CDN_URL + resData.info.cloudinaryImageId}></img>
+            <h3 className="my-3 font-serif text-center font-bold">{name} | Rating-{avgRating}</h3>
+            <h5 className="text-center m-3 text-gray-800 break-words overflow-hidden whitespace-no-wrap w-240 truncate font-serif">Cuisine - {cuisines.join(",")}</h5>
+            <h5 className="font-serif text-center">Cost - {costForTwo} | Area - {areaName}</h5>
+            <h5 className="font-serif text-center"></h5>
         </div>
     )
 }
+
+
 
 export default Restaurants;

@@ -22,7 +22,7 @@ const About = lazy(() => import("./components/About"));
 
 const AppLayout = () => {
     return (
-        <div className="app">
+        <div className="font-serif bg-gray-200 italic">
             <Header />
             <Outlet />
         </div>
