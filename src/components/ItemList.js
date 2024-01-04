@@ -2,8 +2,7 @@ import { CDN_URL2 } from "../utils/constants";
 
 
 const ItemList = ({ items }) => {
-
-
+ 
     //console.log(items)
     return (
         <div>

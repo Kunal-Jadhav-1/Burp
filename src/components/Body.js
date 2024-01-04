@@ -1,8 +1,9 @@
 import Restaurants from "./Restaurants";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from 'react-router-dom';
 import useOnlineStatus from "../utils/useOnlineStatus";
+import UserContext from '../utils/userContext'
 
 
 const Body = () => {
@@ -13,6 +14,12 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState("");
 
+    // const userData = useContext(UserContext);
+    // console.log(userData)
+    // const { loggedInUser } = userData
+    // console.log(loggedInUser)
+
+    const {setUserName,loggedInUser} = useContext(UserContext)
     //console.log(listOfRestaurants);
 
     useEffect(() => {
@@ -49,23 +56,34 @@ const Body = () => {
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-gray-100'>
+                <div className="p-4 text-center">
+                    <label><b>User Name: </b></label>
+                    <input type="text" className=" p-1 m-1 border border-solid border-black rounded-md w-44" value={loggedInUser} onChange={(e) => {setUserName(e.target.value)}}/>
+                </div>
+            <div className="text-center p-2 text-lg">
+                <p>
+                    "Sup <b>{loggedInUser}</b>, These are the restaurants we got for you today !!!"
+                </p>
+            </div>
             <div className="flex mx-14">
                 <div className="m-1">
-                    <input type="text" className="m-1 border border-solid border-black rounded-md " value={searchText} onChange={(e) => {
+                    <input type="text" className="p-1 m-1 border border-solid border-black rounded-md w-60 " value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                     }} />
-                    <button className="mx-3 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
+                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
                         setfilteredRestaurants(listOfRestaurants.filter(
                             (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         ));
-                    }}>Search</button>
+                    }}>Search🔍</button>
                 </div>
-                <button className="mx-3 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
-                    setfilteredRestaurants(listOfRestaurants.filter(
-                        (res) => res.info.avgRating > 4
-                    ));
-                }}
-                > Top Rated </button>
+                <div className="m-1">
+                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
+                        setfilteredRestaurants(listOfRestaurants.filter(
+                            (res) => res.info.avgRating > 4
+                        ));
+                    }}
+                    > Top Rated⭐</button>
+                </div>
             </div>
             <div className="flex flex-wrap  mx-8">
                 {

@@ -1,4 +1,4 @@
-import React,{lazy,Suspense} from "react";
+import React,{lazy,Suspense, useState} from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./components/Header";
 import Body from "./components/Body";
@@ -8,6 +8,8 @@ import Cart from "./components/Cart";
 import Error from "./components/Error";
 //import Groceries from "./components/Groceries";
 import ResMenu from "./components/ResMenu";
+import UserContext from '../src/utils/userContext'
+import {useState,useEffect} from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 
 
@@ -16,16 +18,30 @@ import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 // this is called lazy loading or on demand loading in which a code for a component
 // is loaded to the app only when it is necessary .
 
-const Groceries = lazy(() => import("./components/Groceries"));
 const About = lazy(() => import("./components/About"));
 
 
 const AppLayout = () => {
+
+    const [userName,setUserName]=useState();
+
+    useEffect(() => {
+        //one authethication api call later
+        const info = {
+            name: "Kunal",
+        };
+        setUserName(info.name);
+    },[])
+
+
     return (
+        //This "Provider" makes sure all the component enclosed within it receive the updated value and the rest of the components print the default value
+        <UserContext.Provider value={{loggedInUser:userName,setUserName }}>
         <div className="font-serif bg-gray-200 italic">
             <Header />
             <Outlet />
         </div>
+        </UserContext.Provider>
     );
 
 };
@@ -48,11 +64,6 @@ const appRouter = createBrowserRouter([
             {
                 path: "/contact-us",
                 element: <ContactUs />,
-                errorElement: <Error />,
-            },
-            {
-                path: "/groceries",
-                element: <Suspense fallback={<h1> Loading...... </h1>}><Groceries /></Suspense>,
                 errorElement: <Error />,
             },
             {

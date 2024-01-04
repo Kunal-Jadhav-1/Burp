@@ -1,13 +1,15 @@
 import Shimmer from './Shimmer';
 import { useParams } from 'react-router-dom';
 import useResMenu from '../utils/useResMenu';
-import { CDN_URL2 } from '../utils/constants';
+//import { CDN_URL2 } from '../utils/constants';
 import ResCategory from './ResCategory';
 
 const ResMenu = () => {
     //getting the restaurant id
     const { resid } = useParams();
     //console.log(resid)
+
+    const dummy = "Dummy Data";
 
     // import data using useResMenu hook
     const resDetails = useResMenu(resid);
@@ -30,7 +32,7 @@ const ResMenu = () => {
     //console.log(categories);
 
     return (
-        <div className="mx-auto text-left max-w-4xl border border-solid border-gray-500 bg-slate-200 rounded-2xl m-2 italic">
+        <div className="mx-auto px-6 text-left max-w-4xl border border-solid border-gray-500 bg-slate-200 rounded-2xl italic">
             <h2 className='m-4 font-bold text-2xl'>{name}</h2>
             <h5 className='m-4 text-sm'>{lastMileTravel} kms | {maxDeliveryTime} mins</h5>
             <h4 className='m-4 text-md font-semibold'>Cuisines - {cuisines.join(",")} | Cost for 2 - {costForTwoMessage}</h4>

@@ -12,7 +12,7 @@ const ResCategory = (props) => {
 
     return (
         <div>
-            <div className='border border-solid border-b-gray-500 border-t-gray-500 cursor-pointer text-lg px-3 py-2 my-1'>
+            <div className='border border-solid border-b-gray-500 border-t-gray-500 cursor-pointer text-lg px-3 py-2 my-2'>
                 <div className="flex justify-between bg-white py-2 px-3 text-xl font-bold" onClick={handleClick}>
                     <span className=''>
                         {props?.category?.title} ({(props?.category?.itemCards || props?.category?.categories[0]?.itemCards).length})
