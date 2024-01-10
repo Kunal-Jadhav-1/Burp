@@ -22,7 +22,7 @@ const ItemList = ({ items }) => {
                         <div key={item?.card?.info?.id} className=" border border-solid border-b-gray-500 border-t-gray-500 py-2 px-3 bg-sky-50 flex justify-between">
                             <div className='max-w-lg'>
                                 <p className="text-lg font-semibold  m-1">🍴-: {item?.card?.info?.name}</p>
-                                <p className="text-md font-thin m-1">💸-: ₹{(item?.card?.info?.price) / 100}</p>
+                                <p className="text-xl font-thin m-1">💸-: ₹{(item?.card?.info?.price) / 100}</p>
                                 <p className="text-sm  m-1">📝-: {item?.card?.info?.description || item?.card?.info?.name} </p>
                             </div>
                             <div className="items-center flex">
