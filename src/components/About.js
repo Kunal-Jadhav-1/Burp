@@ -12,8 +12,8 @@ const About = () => {
                 </UserContext.Consumer></h1>
 
             </div>
-            <User name="Kunal Jadhav (func)" location="Pune (func)" />
-            <UserClass name="Kunal Jadhav (class)" location="Pune (class)" />
+            <User name="Kunal Jadhav" location="Pune" />
+            {/* <UserClass name="Kunal Jadhav (class)" location="Pune (class)" /> */}
         </div>
     );
 };

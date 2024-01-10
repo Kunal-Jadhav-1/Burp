@@ -37,3 +37,8 @@
  - 2 major hooks
     useState(); - used to generate state variables
     useEffect();
+
+
+# Redux
+ - Install Redux ToolKit 
+  -> Install @redu.js/toolkit and react-redux

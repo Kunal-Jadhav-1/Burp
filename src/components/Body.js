@@ -14,13 +14,13 @@ const Body = () => {
 
     const [searchText, setSearchText] = useState("");
 
+    //console.log(listOfRestaurants);
     // const userData = useContext(UserContext);
     // console.log(userData)
     // const { loggedInUser } = userData
     // console.log(loggedInUser)
 
     const {setUserName,loggedInUser} = useContext(UserContext)
-    //console.log(listOfRestaurants);
 
     useEffect(() => {
         fetchData();
@@ -34,14 +34,14 @@ const Body = () => {
     // https://thingproxy.freeboard.io/fetch/
     const fetchData = async () => {
         const data = await fetch(
-            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.645566&lng=73.75587589999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
+            "https://www.swiggy.com/dapi/restaurants/list/v5?lat=18.6439281&lng=73.7577146&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
         );
 
         const json = await data.json();
         //console.log(json)
         //Optional Chaining   
-        setListOfRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setfilteredRestaurants(json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setListOfRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
+        setfilteredRestaurants(json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
     }
 
 
@@ -70,14 +70,14 @@ const Body = () => {
                     <input type="text" className="p-1 m-1 border border-solid border-black rounded-md w-60 " value={searchText} onChange={(e) => {
                         setSearchText(e.target.value);
                     }} />
-                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
+                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black font-sans italic" onClick={() => {
                         setfilteredRestaurants(listOfRestaurants.filter(
                             (res) => res.info.name.toLowerCase().includes(searchText.toLowerCase())
                         ));
                     }}>Search🔍</button>
                 </div>
                 <div className="m-1">
-                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black" onClick={() => {
+                    <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black font-sans italic" onClick={() => {
                         setfilteredRestaurants(listOfRestaurants.filter(
                             (res) => res.info.avgRating > 4
                         ));

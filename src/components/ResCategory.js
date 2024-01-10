@@ -4,8 +4,10 @@ import { useState } from 'react'
 const ResCategory = (props) => {
 
     
-    //console.log(props)
+    //console.log(props?.category?.itemCards)
     const [showItems, setShowItems] = useState(false);
+    
+    //add button
     const handleClick = () => {
         setShowItems(!showItems);
     };

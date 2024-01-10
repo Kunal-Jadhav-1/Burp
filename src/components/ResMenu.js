@@ -9,7 +9,6 @@ const ResMenu = () => {
     const { resid } = useParams();
     //console.log(resid)
 
-    const dummy = "Dummy Data";
 
     // import data using useResMenu hook
     const resDetails = useResMenu(resid);
@@ -45,6 +44,7 @@ const ResMenu = () => {
             ))}</h3>
         </div>
     )
-}
+};
+
 
 export default ResMenu

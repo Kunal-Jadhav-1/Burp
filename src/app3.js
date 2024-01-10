@@ -11,9 +11,10 @@ import ResMenu from "./components/ResMenu";
 import UserContext from '../src/utils/userContext'
 import {useState,useEffect} from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
+import { Provider } from "react-redux";
+import appStore from './utils/appStore';
 
-
-//importing  groceries using lazy loading coz 
+//importing  about using lazy loading coz 
 //we gotta optimize the app and call only the components that are necessary
 // this is called lazy loading or on demand loading in which a code for a component
 // is loaded to the app only when it is necessary .
@@ -35,13 +36,15 @@ const AppLayout = () => {
 
 
     return (
-        //This "Provider" makes sure all the component enclosed within it receive the updated value and the rest of the components print the default value
+        <Provider store={appStore}>
+        {/* //This "Provider" makes sure all the component enclosed within it receive the updated value and the rest of the components print the default value */}
         <UserContext.Provider value={{loggedInUser:userName,setUserName }}>
-        <div className="font-serif bg-gray-200 italic">
+        <div className="bg-gray-200 font-sans italic">
             <Header />
             <Outlet />
         </div>
         </UserContext.Provider>
+        </Provider>
     );
 
 };
