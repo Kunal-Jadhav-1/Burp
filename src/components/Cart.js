@@ -1,8 +1,6 @@
 import { useDispatch, useSelector } from "react-redux"
 import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
-import { useParams} from 'react-router-dom'
-import useResMenu from '../utils/useResMenu';
 
 
 const Cart = () => {
@@ -18,7 +16,7 @@ const Cart = () => {
   //   console.log(cartItemList)
 
   const dispatch = useDispatch();
-  const handleClearCart =() => {
+  const handleClearCart = () => {
     dispatch(clearCart());
   }
 
