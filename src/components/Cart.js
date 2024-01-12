@@ -1,25 +1,17 @@
 import { useDispatch, useSelector } from "react-redux"
-import ItemList from "./ItemList";
 import { clearCart } from "../utils/cartSlice";
+import CartList from "./CartList";
 
 
 const Cart = () => {
 
-  // const { resid } = useParams(); 
-  //   console.log(resid)
-
-
-  //   // import data using useResMenu hook
-  //   const resDetails = useResMenu(resid);
-  //   console.log(resDetails)
-  //   const {cartItemList} =resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.card?.card?.category?.itemCards || resDetails?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.card?.card?.categories[0]?.itemCards || {}
-  //   console.log(cartItemList)
-
   const dispatch = useDispatch();
+
+
   const handleClearCart = () => {
     dispatch(clearCart());
   }
-
+  
   const cartItems = useSelector((store) => store.cart.items);
 
   return (
@@ -30,8 +22,11 @@ const Cart = () => {
       <div>
         <button className="mx-2 my-3 px-2 py-1 border border-solid border-black bg-black text-white rounded-lg hover:bg-white hover:text-black font-serif text-sm" onClick={handleClearCart}>Clear Cart</button>
         {cartItems.length === 0 && <p className="text-center text-lg font-bold text-yellow-4`00 cursor-pointer"> Cart Empty !!</p>}
-        <ItemList items={cartItems} />
+        {/* <ItemList items={cartItems} /> */}
+        {cartItems.length !== 0 && <CartList items={cartItems} />}
       </div>
+      
+
     </div>
   )
 }

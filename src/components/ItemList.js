@@ -2,13 +2,13 @@ import { useDispatch } from 'react-redux';
 import { CDN_URL2 } from "../utils/constants";
 import { addItem, removeItem } from '../utils/cartSlice'
 import { useState } from 'react'
+// import { addValue, removeValue } from '../utils/billSlice';
 
 
 const ItemList = ({ items }) => {
     //console.log(items)
 
-
-    //console.log(items)
+    
     return (
         <div>
             <div>
@@ -20,6 +20,7 @@ const ItemList = ({ items }) => {
 
                         dispatch(addItem(item))
                         setCount(count + 1);
+                        
                     }
 
                     const handleRemoveItem = () => {
@@ -51,5 +52,6 @@ const ItemList = ({ items }) => {
         </div>
     )
 }
+
 
 export default ItemList
