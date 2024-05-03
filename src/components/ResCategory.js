@@ -4,7 +4,7 @@ import { useState } from 'react'
 const ResCategory = (props) => {
 
     
-    //console.log(props?.category?.itemCards)
+    console.log(props)
     const [showItems, setShowItems] = useState(false);
     
     //add button

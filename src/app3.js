@@ -9,7 +9,7 @@ import Error from "./components/Error";
 //import Groceries from "./components/Groceries";
 import ResMenu from "./components/ResMenu";
 import UserContext from '../src/utils/userContext'
-import {useState,useEffect} from 'react'
+import {useEffect} from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Provider } from "react-redux";
 import appStore from './utils/appStore';
