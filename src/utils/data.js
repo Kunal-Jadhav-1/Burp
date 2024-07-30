@@ -2037,10 +2037,11 @@ export const food = {
                                             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
                                             "info": {
                                                 "id": "142656345",
-                                                "name": "Crispy veg cheese corn nuggets                                                       ",
+                                                "name": "Crispy veg cheese corn nuggets",
                                                 "category": "Late Night Bestsellers",
                                                 "imageId": Pizza1,
                                                 "inStock": 1,
+                                                "description": "Crispy veg cheese corn nuggets are delightful bite-sized snacks filled with a creamy mix of cheese, corn, and vegetables, coated in a crunchy breadcrumb exterior.", 
                                                 "isVeg": 1,
                                                 "price": 13900,
                                                 "variants": {
@@ -2079,10 +2080,11 @@ export const food = {
                                             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
                                             "info": {
                                                 "id": "142656355",
-                                                "name": "Chicken tikka pizza                                                       ",
+                                                "name": "Chicken tikka pizza",
                                                 "category": "Late Night Bestsellers",
                                                 "description": "Large 12 Inches",
                                                 "imageId": Pizza2,
+                                                "description": "Chicken tikka pizza features a savory blend of marinated chicken tikka pieces on a cheesy, spicy tomato base, topped with fresh vegetables and herbs.", 
                                                 "inStock": 1,
                                                 "price": 47900,
                                                 "variants": {
@@ -2121,10 +2123,11 @@ export const food = {
                                             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
                                             "info": {
                                                 "id": "142656364",
-                                                "name": "Bbq chicken pizza                                                       ",
+                                                "name": "Bbq chicken pizza",
                                                 "category": "Late Night Bestsellers",
                                                 "description": "Small 7 Inches",
                                                 "imageId": Pizza3,
+                                                "description":"BBQ chicken pizza offers a smoky and tangy barbecue sauce base topped with tender chicken pieces, red onions, and a blend of melted cheeses.",
                                                 "inStock": 1,
                                                 "price": 20900,
                                                 "variants": {
@@ -2168,6 +2171,7 @@ export const food = {
                                                 "imageId": Pizza4,
                                                 "inStock": 1,
                                                 "isVeg": 1,
+                                                "description":"Crispy veg cheese corn nuggets are crunchy, golden-brown bites filled with a creamy blend of cheese, sweet corn, and vegetables.",
                                                 "price": 13900,
                                                 "variants": {
 
@@ -2212,6 +2216,7 @@ export const food = {
                                                 "imageId": Pizza5,
                                                 "inStock": 1,
                                                 "isVeg": 1,
+                                                "description":"Classic salted fries are golden, crispy potato strips seasoned with a sprinkle of salt for a simple and satisfying snack.",
                                                 "price": 9900,
                                                 "variants": {
 
@@ -2256,6 +2261,7 @@ export const food = {
                                                 "name": "Crunchy Chicken Juicy Burger",
                                                 "category": "Burges",
                                                 "imageId": Burger1,
+                                                "description":"Crunchy Chicken Juicy Burger features a crispy chicken patty topped with fresh lettuce, tomato, and a juicy, flavorful sauce, all sandwiched between a soft bun.",
                                                 "inStock": 1,
                                                 "price": 23400,
                                                 "variants": {
@@ -2303,6 +2309,7 @@ export const food = {
                                                 "name": "Classic Chicken Burger",
                                                 "category": "Burges",
                                                 "imageId": Burger2,
+                                                "description":"Classic Chicken Burger features a tender, seasoned chicken patty with lettuce, tomato, and mayo, served in a soft bun.",
                                                 "inStock": 1,
                                                 "price": 15600,
                                                 "variants": {
@@ -2351,6 +2358,7 @@ export const food = {
                                                 "category": "Burges",
                                                 "inStock": 1,
                                                 "price": 18720,
+                                                "description":"Special Chicken Cheesy Burger combines a succulent chicken patty with melted cheese, crispy bacon, and a special sauce, all nestled in a soft, toasted bun.",
                                                 "imageId":Burger3,
                                                 "variants": {
 
@@ -2397,6 +2405,7 @@ export const food = {
                                                 "name": "Special Chicken Cheese Juicy Crunchy Burger",
                                                 "category": "Burges",
                                                 "imageId": Burger4,
+                                                "desccription":"Special Chicken Cheese Juicy Crunchy Burger features a juicy, crispy chicken patty topped with melted cheese, fresh veggies, and a special sauce, all encased in a crunchy bun.",
                                                 "inStock": 1,
                                                 "price": 28080,
                                                 "variants": {
@@ -2444,6 +2453,7 @@ export const food = {
                                                 "name": "The Godfather Burger",
                                                 "category": "Burges",
                                                 "inStock": 1,
+                                                "description":"The Godfather Burger is a hearty, indulgent creation with a juicy beef patty, melted cheese, crispy bacon, caramelized onions, and a special sauce, all stacked in a robust bun.",
                                                 "price": 24570,
                                                 "imageId":Burger5,
                                                 "variants": {
