@@ -10,6 +10,7 @@ const Body = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [selectedFood, setSelectedFood] = useState(null); // State to manage selected food item
+    const [cart , setCart] = useState([])
 
     const { loggedInUser } = useContext(UserContext);
 
@@ -18,11 +19,13 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        // Simulate fetching data
-        const data = food;
-        const itemCards = data?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards || [];
-        setListOfRestaurants(itemCards);
-        setFilteredRestaurants(itemCards);
+        const itemCards = food || [];
+        if (Array.isArray(itemCards)) {
+            setListOfRestaurants(itemCards);
+            setFilteredRestaurants(itemCards);
+        } else {
+            console.error("Fetched data is not an array:", itemCards);
+        }
     };
 
     const handleFoodClick = (food) => {
@@ -47,24 +50,25 @@ const Body = () => {
 
     const handleFilterTopRated = () => {
         const topRated = listOfRestaurants.filter(
-            (res) => res?.card?.info?.ratings?.aggregatedRating?.rating > 3.5
+            (res) => res?.card?.info?.ratings?.aggregatedRating?.rating > 4
         );
         setFilteredRestaurants(topRated);
     };
 
     const handleFilterFavourites = () => {
-        // Assuming you have a way to mark favourites. Replace with your actual logic.
         const favourites = listOfRestaurants.filter(
-            (res) => res?.card?.info?.favourite // This line assumes a favourite property exists
+            (res) => res?.card?.info?.favourite === 1
         );
         setFilteredRestaurants(favourites);
     };
+
+    console.log(cart)
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-secondary my-0'>
             <div className="my-4 text-center p-2 text-lg text-primary">
                 <p>
-                    "Sup <b>{loggedInUser}</b>, These are the restaurants we got for you today !!!"
+                    "Sup <b>{loggedInUser}</b>, These are the dishes we got for you today !!!"
                 </p>
             </div>
             <div className="flex mx-14">
@@ -118,11 +122,11 @@ const Body = () => {
                         onClick={() => handleFoodClick(food)}
                         className="cursor-pointer"  // Added cursor pointer for better UX
                     >
-                        <Foods resData={food} />
+                        <Foods resData={food} listOfRestaurants={listOfRestaurants} />
                     </div>
                 ))}
             </div>
-            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} />}
+            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants} cart={cart} setCart={setCart} />}
         </div>
     );
 };

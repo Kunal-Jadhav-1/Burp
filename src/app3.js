@@ -10,7 +10,6 @@ import {useEffect} from 'react'
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Provider } from "react-redux";
 import appStore from './utils/appStore';
-import Item from "./components/Item";
 
 //importing  about using lazy loading coz 
 //we gotta optimize the app and call only the components that are necessary
@@ -23,6 +22,10 @@ const About = lazy(() => import("./components/About"));
 const AppLayout = () => {
 
     const [userName,setUserName]=useState();
+
+    const [cart,setCart] = useState([]);
+
+    
 
     useEffect(() => {
         //one authethication api call later
