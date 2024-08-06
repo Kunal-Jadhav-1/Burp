@@ -1,22 +1,111 @@
 import { useState, useEffect } from "react";
-// import {useSelector} from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
+import { addToCart, updateCartItem } from "../Store/cartSlice"; // Assuming you have an updateCartItem action
 
-const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants,cart,setCart }) => {
+const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
     const [favourite, setFavourite] = useState(item.card.info.favourite);
-    console.log(favourite)
+    const [quantity, setQuantity] = useState(item.card.info.quantity || 0);
 
     useEffect(() => {
         setFavourite(item.card.info.favourite);
     }, [item]);
 
-    // const cartItems = useSelector((store) => store.cart.items);
+    const cartItems = useSelector((state) => state.cart);
+    const dispatch = useDispatch();
 
     const addCart = () => {
-        // const newCart = cart.push(item)
-        // setCart(newCart)
-    }
+        const itemExists = cartItems.some(cartItem => cartItem.card.info.id === item.card.info.id);
 
-   
+        const updatedRestaurants = listOfRestaurants.map((restaurant) => {
+            if (restaurant.card.info.id === item.card.info.id) {
+                return {
+                    ...restaurant,
+                    card: {
+                        ...restaurant.card,
+                        info: {
+                            ...restaurant.card.info,
+                            quantity: 1,
+                        },
+                    },
+                };
+            }
+            return restaurant;
+        });
+
+        setListOfRestaurants(updatedRestaurants);
+        setQuantity(1);
+
+        if (!itemExists) {
+            dispatch(addToCart({ ...item, card: { ...item.card, info: { ...item.card.info, quantity: 1 } } }));
+            console.log("item added");
+        } else {
+            const updatedCartItems = cartItems.map(cartItem =>
+                cartItem.card.info.id === item.card.info.id
+                    ? { ...cartItem, card: { ...cartItem.card, info: { ...cartItem.card.info, quantity: cartItem.card.info.quantity + 1 } } }
+                    : cartItem
+            );
+            dispatch(updateCartItem(updatedCartItems));
+            console.log("item quantity updated");
+        }
+
+        console.log(cartItems);
+    };
+
+    const incrementQuantity = () => {
+        const updatedRestaurants = listOfRestaurants.map((restaurant) => {
+            if (restaurant.card.info.id === item.card.info.id) {
+                return {
+                    ...restaurant,
+                    card: {
+                        ...restaurant.card,
+                        info: {
+                            ...restaurant.card.info,
+                            quantity: (restaurant.card.info.quantity || 0) + 1,
+                        },
+                    },
+                };
+            }
+            return restaurant;
+        });
+
+        setListOfRestaurants(updatedRestaurants);
+        setQuantity(quantity + 1);
+
+        const updatedCartItems = cartItems.map(cartItem =>
+            cartItem.card.info.id === item.card.info.id
+                ? { ...cartItem, card: { ...cartItem.card, info: { ...cartItem.card.info, quantity: cartItem.card.info.quantity + 1 } } }
+                : cartItem
+        );
+        dispatch(updateCartItem(updatedCartItems));
+    };
+
+    const decrementQuantity = () => {
+        const updatedRestaurants = listOfRestaurants.map((restaurant) => {
+            if (restaurant.card.info.id === item.card.info.id) {
+                return {
+                    ...restaurant,
+                    card: {
+                        ...restaurant.card,
+                        info: {
+                            ...restaurant.card.info,
+                            quantity: Math.max((restaurant.card.info.quantity || 0) - 1, 0),
+                        },
+                    },
+                };
+            }
+            return restaurant;
+        });
+
+        setListOfRestaurants(updatedRestaurants);
+        setQuantity(Math.max(quantity - 1, 0));
+
+        const updatedCartItems = cartItems.map(cartItem =>
+            cartItem.card.info.id === item.card.info.id
+                ? { ...cartItem, card: { ...cartItem.card, info: { ...cartItem.card.info, quantity: Math.max(cartItem.card.info.quantity - 1, 0) } } }
+                : cartItem
+        );
+        dispatch(updateCartItem(updatedCartItems));
+    };
 
     const toggleFavourite = () => {
         const updatedFavourite = favourite === 1 ? 0 : 1;
@@ -58,9 +147,17 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants,cart,setC
                 </p>
                 <p className="my-2 text-pretty text-primary text-clip text-center">{description}</p>
                 <div className="flex justify-center space-x-4">
-                    <button className="my-4 bg-primary text-tertiary px-4 py-2 rounded-md" onClick={addCart}>Add to Cart 🛒</button>
+                    {quantity === 0 ? (
+                        <button className="my-4 bg-primary text-tertiary px-4 py-2 rounded-md" onClick={addCart}>Add to Cart 🛒</button>
+                    ) : (
+                        <div className="flex items-center space-x-0 ">
+                            <button className="my-4 bg-primary text-tertiary border border-t-primary border-b-primary px-4 py-2 rounded-l-md" onClick={decrementQuantity}>-</button>
+                            <button className="font-bold border border-t-primary border-b-primary px-3 py-2">{quantity}</button>
+                            <button className="my-4 bg-primary text-tertiary border border-t-primary border-b-primary px-4 py-2 rounded-r-md" onClick={incrementQuantity}>+</button>
+                        </div>
+                    )}
                     <button className="my-4 bg-primary text-tertiary px-4 py-2 rounded-md" onClick={toggleFavourite}>
-                        {favourite === 1 ? 'Remove from Favourite ❤️' : 'Add to Favourite ❤️'}
+                        {favourite === 1 ? '"Un"Favourite ❤️' : 'Favourite ❤️'}
                     </button>
                 </div>
             </div>

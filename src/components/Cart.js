@@ -6,11 +6,12 @@ const Cart = () => {
   const dispatch = useDispatch();
 
 
-  const handleClearCart = () => {
-    dispatch(clearCart());
-  }
+  // const handleClearCart = () => {
+  //   dispatch(clearCart());
+  // }
   
-  const cartItems = useSelector((store) => store.cart.items);
+  const cartItems = useSelector((state) => state.cart);
+  // console.log(cartItems)
 
   return (
     <div className=" m-5 p-3 text-2xl font-thin w-8/12 mx-auto px-6 bg-secondary text-primary rounded-2xl italic ">
@@ -18,10 +19,12 @@ const Cart = () => {
         <h1>🛒CART🛒</h1>
       </div>
       <div>
-        <button className="mx-2 my-3 px-2 py-1 border border-solid border-tertiary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-serif text-sm" onClick={handleClearCart}>Clear Cart</button>
-        {cartItems.length === 0 && <p className="text-center text-lg font-bold text-yellow-4`00 cursor-pointer"> Cart Empty !!</p>}
+        <button className="mx-2 my-3 px-2 py-1 border border-solid border-tertiary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-serif text-sm">Clear Cart</button>
+        {/* {cartItems.length === 0 && <p className="text-center text-lg font-bold text-yellow-4`00 cursor-pointer"> Cart Empty !!</p>} */}
         {/* <ItemList items={cartItems} /> */}
-        {cartItems.length !== 0 && <CartList items={cartItems} />}
+        {cartItems.length !== 0 && <div>{cartItems.map((item) => (
+          <h1 key={item.card.info.id}>{item.card.info.name} - X {item.card.info.quantity}</h1>
+        ))}</div>}
       </div>
       
 

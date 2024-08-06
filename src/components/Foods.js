@@ -8,7 +8,7 @@ const Foods = ({ resData,listOfRestaurants }) => {
     const [favourite, setFavourite] = useState(resData?.card?.info?.favourite);
     useEffect(() => {
         setFavourite(resData?.card?.info?.favourite)
-        console.log(favourite)
+        // console.log(favourite)
     }, listOfRestaurants);
     
 

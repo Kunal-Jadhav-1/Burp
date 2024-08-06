@@ -10,7 +10,6 @@ const Body = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [selectedFood, setSelectedFood] = useState(null); // State to manage selected food item
-    const [cart , setCart] = useState([])
 
     const { loggedInUser } = useContext(UserContext);
 
@@ -30,7 +29,7 @@ const Body = () => {
 
     const handleFoodClick = (food) => {
         setSelectedFood(food);
-        console.log("Selected Food:", food); // Log to ensure the correct food is selected
+        // console.log("Selected Food:", food); // Log to ensure the correct food is selected
     };
 
     const handleClosePopup = () => {
@@ -62,7 +61,7 @@ const Body = () => {
         setFilteredRestaurants(favourites);
     };
 
-    console.log(cart)
+    // console.log(cart)
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-secondary my-0'>
@@ -126,7 +125,7 @@ const Body = () => {
                     </div>
                 ))}
             </div>
-            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants} cart={cart} setCart={setCart} />}
+            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants}/>}
         </div>
     );
 };

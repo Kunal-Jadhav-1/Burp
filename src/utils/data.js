@@ -27,6 +27,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "30110117",
+                "quantity":0,
                 "favourite":0,
                 "name": "Pav Bhaji",
                 "category": "Pav Bhaji",
@@ -151,6 +152,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "71668672",
+                "quantity":0,
                 "name": "Kolhapuri Pav Bhaji (bit Spicy)",
                 "favourite":0,
                 "category": "Pav Bhaji",
@@ -276,6 +278,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "30110119",
+                "quantity":0,
                 "name": "Cheese Pav Bhaji",
                 "category": "Pav Bhaji",
                 "favourite":0,
@@ -396,6 +399,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "77345467",
+                "quantity":0,
                 "name": "Special Kolhapuri Pavbhaji",
                 "category": "Pav Bhaji",
                 "favourite":0,
@@ -440,6 +444,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "30110139",
+                "quantity":0,
                 "name": "Veg Pulao",
                 "category": "Pulao",
                 "favourite":0,
@@ -548,6 +553,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "113512530",
+                "quantity":0,
                 "name": "Chicken Momos (Steam) [6 pcs]",
                 "category": "Non Veg Momos",
                 "favourite":0,
@@ -635,6 +641,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "113512483",
+                "quantity":0,
                 "name": "Chicken Schezwan Fried Spicy Momos [6 pcs]",
                 "category": "Non Veg Momos",
                 "favourite":0,
@@ -722,6 +729,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "113512478",
+                "quantity":0,
                 "name": "Chicken Fried Momos [6 pcs]",
                 "category": "Non Veg Momos",
                 "favourite":0,
@@ -809,6 +817,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "113512504",
+                "quantity":0,
                 "name": "Chicken Fried Peri Peri Momos [6 pcs]",
                 "category": "Non Veg Momos",
                 "favourite":0,
@@ -894,6 +903,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "100452029",
+                "quantity":0,
                 "name": "Chicken Peri Peri Momos",
                 "category": "Non Veg Momos",
                 "favourite":0,
@@ -1091,6 +1101,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "142656345",
+                "quantity":0,
                 "name": "Crispy veg cheese corn nuggets",
                 "category": "Late Night Bestsellers",
                 "favourite":0,
@@ -1135,6 +1146,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "142656355",
+                "quantity":0,
                 "name": "Chicken tikka pizza",
                 "category": "Late Night Bestsellers",
                 "description": "Large 12 Inches",
@@ -1179,6 +1191,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "142656364",
+                "quantity":0,
                 "name": "Bbq chicken pizza",
                 "category": "Late Night Bestsellers",
                 "description": "Small 7 Inches",
@@ -1223,6 +1236,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "109948368",
+                "quantity":0,
                 "name": "Crispy veg cheese corn nuggets",
                 "category": "Fries",
                 "favourite":0,
@@ -1269,6 +1283,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "109948369",
+                "quantity":0,
                 "name": "Classic salted fries",
                 "category": "Fries",
                 "favourite":0,
@@ -1317,6 +1332,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "106959200",
+                "quantity":0,
                 "name": "Crunchy Chicken Juicy Burger",
                 "category": "Burges",
                 "favourite":0,
@@ -1366,6 +1382,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "66063001",
+                "quantity":0,
                 "name": "Classic Chicken Burger",
                 "category": "Burges",
                 "favourite":0,
@@ -1415,6 +1432,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "106739290",
+                "quantity":0,
                 "name": "Special Chicken Cheesy Burger",
                 "category": "Burges",
                 "favourite":0,
@@ -1464,6 +1482,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "106739291",
+                "quantity":0,
                 "name": "Special Chicken Cheese Juicy Crunchy Burger",
                 "category": "Burges",
                 "favourite":0,
@@ -1513,6 +1532,7 @@ export const food = [
             "@type": "type.googleapis.com/swiggy.presentation.food.v2.Dish",
             "info": {
                 "id": "121089536",
+                "quantity":0,
                 "name": "The Godfather Burger",
                 "category": "Burges",
                 "favourite":0,
