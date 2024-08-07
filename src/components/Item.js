@@ -1,10 +1,10 @@
 import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
-import { addToCart, updateCartItem } from "../Store/cartSlice"; // Assuming you have an updateCartItem action
+import { addToCart, updateCartItem, removeFromCart } from "../Store/cartSlice";
 
 const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
     const [favourite, setFavourite] = useState(item.card.info.favourite);
-    const [quantity, setQuantity] = useState(item.card.info.quantity || 0);
+    const [quantity, setQuantity] = useState(item.card.info.quantity);
 
     useEffect(() => {
         setFavourite(item.card.info.favourite);
@@ -80,6 +80,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
     };
 
     const decrementQuantity = () => {
+        const newQuantity = Math.max(quantity - 1, 0);
         const updatedRestaurants = listOfRestaurants.map((restaurant) => {
             if (restaurant.card.info.id === item.card.info.id) {
                 return {
@@ -88,7 +89,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
                         ...restaurant.card,
                         info: {
                             ...restaurant.card.info,
-                            quantity: Math.max((restaurant.card.info.quantity || 0) - 1, 0),
+                            quantity: newQuantity,
                         },
                     },
                 };
@@ -97,14 +98,18 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
         });
 
         setListOfRestaurants(updatedRestaurants);
-        setQuantity(Math.max(quantity - 1, 0));
+        setQuantity(newQuantity);
 
-        const updatedCartItems = cartItems.map(cartItem =>
-            cartItem.card.info.id === item.card.info.id
-                ? { ...cartItem, card: { ...cartItem.card, info: { ...cartItem.card.info, quantity: Math.max(cartItem.card.info.quantity - 1, 0) } } }
-                : cartItem
-        );
-        dispatch(updateCartItem(updatedCartItems));
+        if (newQuantity === 0) {
+            dispatch(removeFromCart(item.card.info.id));
+        } else {
+            const updatedCartItems = cartItems.map(cartItem =>
+                cartItem.card.info.id === item.card.info.id
+                    ? { ...cartItem, card: { ...cartItem.card, info: { ...cartItem.card.info, quantity: newQuantity } } }
+                    : cartItem
+            );
+            dispatch(updateCartItem(updatedCartItems));
+        }
     };
 
     const toggleFavourite = () => {
