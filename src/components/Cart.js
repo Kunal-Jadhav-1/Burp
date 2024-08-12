@@ -44,7 +44,7 @@ const Cart = () => {
               <div key={item.card.info.id} className="flex justify-between border border-primary px-2 py-1 ">
                 <div className="flex justify-normal">
                   <img src={item.card.info.imageId} className="w-[20%] rounded mx-1 border border-primary" alt={item.card.info.name} />
-                  <div className="text-lg font-semibold text-primary content-center mx-1 overflow-clip">{item.card.info.name}</div>
+                  <div className="text-lg font-semibold text-primary content-center mx-1 overflow-x-hidden">{item.card.info.name}</div>
                 </div>
                 <div className="flex justify-evenly">
                   <div className="flex items-center mx-2 space-x-0 text-sm">

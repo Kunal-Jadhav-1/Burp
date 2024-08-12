@@ -70,28 +70,28 @@ const Body = () => {
                     "Sup <b>{loggedInUser}</b>, These are the dishes we got for you today !!!"
                 </p>
             </div>
-            <div className="flex mx-14">
-                <div className="m-1">
+            <div className="flex mx-14 space-x-3">
+                <div className="m-1 space-x-3">
                     <input 
                         type="text" 
-                        className="p-1 m-1 border border-solid border-secondary text-primary font-serif font-light rounded-md w-60" 
+                        className="p-1 m-1 border border-solid border-secondary text-primary font-serif font-light rounded-md w-[63%]" 
                         value={searchText} 
                         onChange={(e) => setSearchText(e.target.value)} 
-                        placeholder="Search restaurants..." 
+                        placeholder="Search.." 
                     />
                     <button 
-                        className="mx-2 my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
+                        className="my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
                         onClick={handleSearch}
                     >
                         Search🔍
                     </button>
                 </div>
-                <div className="mx-3 my-4 px-2 py-1 content-center">
+                <div className="my-4 px-2 py-1 content-center">
                     |
                 </div>
                 <div className="m-1">
                     <button 
-                        className="mx-2 my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
+                        className="my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
                         onClick={handleFilterAll}
                     >
                         All🍽️
@@ -99,7 +99,7 @@ const Body = () => {
                 </div>
                 <div className="m-1">
                     <button 
-                        className="mx-2 my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
+                        className=" my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
                         onClick={handleFilterTopRated}
                     >
                         Top Rated⭐
@@ -107,7 +107,7 @@ const Body = () => {
                 </div>
                 <div className="m-1">
                     <button 
-                        className="mx-2 my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
+                        className="my-3 px-2 py-1 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic" 
                         onClick={handleFilterFavourites}
                     >
                         Favourites❤️

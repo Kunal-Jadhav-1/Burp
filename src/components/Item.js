@@ -4,13 +4,16 @@ import { addToCart, updateCartItem, removeFromCart } from "../Store/cartSlice";
 
 const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
     const [favourite, setFavourite] = useState(item.card.info.favourite);
-    const [quantity, setQuantity] = useState(item.card.info.quantity);
+    
+    // Set initial quantity based on the cart item
+    const cartItems = useSelector((state) => state.cart);
+    const initialCartItem = cartItems.find(cartItem => cartItem.card.info.id === item.card.info.id);
+    const [quantity, setQuantity] = useState(initialCartItem ? initialCartItem.card.info.quantity : 0);
 
     useEffect(() => {
         setFavourite(item.card.info.favourite);
     }, [item]);
 
-    const cartItems = useSelector((state) => state.cart);
     const dispatch = useDispatch();
 
     const addCart = () => {
@@ -37,7 +40,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
 
         if (!itemExists) {
             dispatch(addToCart({ ...item, card: { ...item.card, info: { ...item.card.info, quantity: 1 } } }));
-            console.log("item added");
+            // console.log("item added");
         } else {
             const updatedCartItems = cartItems.map(cartItem =>
                 cartItem.card.info.id === item.card.info.id
@@ -48,7 +51,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
             console.log("item quantity updated");
         }
 
-        console.log(cartItems);
+        // console.log(cartItems);
     };
 
     const incrementQuantity = () => {
