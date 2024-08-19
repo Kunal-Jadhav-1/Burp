@@ -24,7 +24,7 @@ const Cart = () => {
 
   return (
     <div className="m-5 p-3 w-9/12 mx-auto px-6 bg-secondary text-primary rounded-2xl italic">
-      <div className="text-center m-5 cursor-pointer text-4xl font-serif">
+      <div className="text-center m-5 cursor-pointer text-4xl font-extrabold">
         <h1 className="">CART</h1>
       </div>
       <div>

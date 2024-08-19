@@ -16,7 +16,6 @@ const AppLayout = () => {
     const [userName, setUserName] = useState();
 
     useEffect(() => {
-        // Simulate an API call for user authentication
         const info = {
             name: "Kunal",
         };

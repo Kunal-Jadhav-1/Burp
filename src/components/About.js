@@ -3,7 +3,7 @@ import UserContext from '../utils/userContext';
 const About = () => {
     return (
         <div className="mx-auto text-center w-3/4 bg-secondary text-primary rounded-2xl m-2">
-            <h1 className="text-center text-4xl font-semibold mb-4">This is Burp!</h1>
+            <h1 className="text-center text-4xl font-semibold my-12">This is Burp!</h1>
             <div className="m-4 p-6 bg-gray-150 rounded-lg text-left hover:shadow-gray-700 hover:shadow-2x">
                 <h2 className="text-2xl font-semibold mb-3">About Burp!</h2>
                 <p className="mb-4">

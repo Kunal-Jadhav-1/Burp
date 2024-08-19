@@ -151,7 +151,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
                 <h3 className="my-2 font-sans text-center font-bold">{name}</h3>
                 <p className="text-center">
                     <span className="mx-2">Price: ₹{price / 100}</span> |
-                    <span className="mx-2">Rating: {ratings?.aggregatedRating?.rating || 'N/A'}🌟</span>
+                    <span className="mx-2">Rating: {ratings?.aggregatedRating?.rating || 'N/A'}⭐</span>
                 </p>
                 <p className="my-2 text-pretty text-primary text-clip text-center">{description}</p>
                 <div className="flex justify-center space-x-4">
