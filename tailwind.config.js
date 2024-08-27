@@ -7,19 +7,22 @@ module.exports = {
   theme: {
     extend: {
       backgroundColor: {
-        primary: '#10222e',
-        secondary: '#fffee6',
-        tertiary:"#fcffee",
+        primary: ' #0F222D',
+        secondary: '#EBE7D9',
+        tertiary:"#FFF5D0",
+        accent:"#fbc502",
       },
       textColor: {
-        primary: '#10222e',
-        secondary: '#fffee6',
-        tertiary:"#fcffee",
+        primary: ' #0F222D',
+        secondary: '#EBE7D9',
+        tertiary:"#FFF5D0",
+        accent:"#fbc502",
       },
       borderColor: {
-        primary: '#10222e',
-        secondary: '#fffee6',
-        tertiary:"#fcffee",
+        primary: ' #0F222D',
+        secondary: '#EBE7D9',
+        tertiary:"#FFF5D0",
+        accent:"#fbc502",
       },
     },
   },

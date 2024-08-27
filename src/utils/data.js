@@ -153,7 +153,7 @@ export const food = [
             "info": {
                 "id": "71668672",
                 "quantity":0,
-                "name": "Kolhapuri Pav Bhaji (bit Spicy)",
+                "name": "Kolhapuri Pav Bhaji(Spicy)",
                 "favourite":0,
                 "category": "Pav Bhaji",
                 "description": "MH12 original spicy bhaji made in our signature Kolhapuri masala, served with hot buttery pav pair, salad & lasun chutney",
@@ -642,7 +642,7 @@ export const food = [
             "info": {
                 "id": "113512483",
                 "quantity":0,
-                "name": "Chicken Schezwan Fried Spicy Momos [6 pcs]",
+                "name": "Chicken Schezwan Spicy Momos",
                 "category": "Non Veg Momos",
                 "favourite":0,
                 "description": "Chicken loaded flavorsome momos grilled to a succulent and mind blowing perfection with schezwan sauce",
@@ -730,7 +730,7 @@ export const food = [
             "info": {
                 "id": "113512478",
                 "quantity":0,
-                "name": "Chicken Fried Momos [6 pcs]",
+                "name": "Chicken Fried Momos",
                 "category": "Non Veg Momos",
                 "favourite":0,
                 "description": "Incredibly flavorsome and palatable chicken loaded momos fried to an irresistible flavor",
@@ -818,7 +818,7 @@ export const food = [
             "info": {
                 "id": "113512504",
                 "quantity":0,
-                "name": "Chicken Fried Peri Peri Momos [6 pcs]",
+                "name": "Chicken Peri Peri Momos",
                 "category": "Non Veg Momos",
                 "favourite":0,
                 "description": "| serve 1 | flavorful and mind blowing fried dumplings with a filling of savory peri peri sauce and lush chicken nuggets",
@@ -1102,7 +1102,7 @@ export const food = [
             "info": {
                 "id": "142656345",
                 "quantity":0,
-                "name": "Crispy veg cheese corn nuggets",
+                "name": "Crispy Cheese Nuggets",
                 "category": "Late Night Bestsellers",
                 "favourite":0,
                 "imageId": Pizza1,
@@ -1237,7 +1237,7 @@ export const food = [
             "info": {
                 "id": "109948368",
                 "quantity":0,
-                "name": "Crispy veg cheese corn nuggets",
+                "name": "Crispy Corn Nuggets",
                 "category": "Fries",
                 "favourite":0,
                 "imageId": Pizza4,
@@ -1284,7 +1284,7 @@ export const food = [
             "info": {
                 "id": "109948369",
                 "quantity":0,
-                "name": "Classic salted fries",
+                "name": "Classic Salted Fries",
                 "category": "Fries",
                 "favourite":0,
                 "imageId": Pizza5,
@@ -1483,7 +1483,7 @@ export const food = [
             "info": {
                 "id": "106739291",
                 "quantity":0,
-                "name": "Special Chicken Cheese Juicy Crunchy Burger",
+                "name": "Special Chicken Crunchy Burger",
                 "category": "Burges",
                 "favourite":0,
                 "imageId": Burger4,
