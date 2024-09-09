@@ -12,7 +12,7 @@ const Foods = ({ resData, listOfRestaurants }) => {
     }, [listOfRestaurants]);
 
     return (
-        <div className="relative m-4 p-2 w-full sm:w-64 h-auto bg-gray-150 rounded-lg hover:shadow-gray-700 hover:shadow-2xl hover:border border-tertiary hover:bg-tertiary group  md:text-base text-sm sm:items-start">
+        <div className="relative m-4 px-2 pt-2 pb-4 w-full sm:w-64 h-auto bg-gray-150 rounded-lg hover:shadow-gray-700 hover:shadow-2xl hover:border border-tertiary hover:bg-tertiary group  md:text-base text-sm sm:items-start">
             <img className="h-36 w-60 my-1 rounded-md cursor-pointer mx-auto" src={imageId} alt={name} />
             <h3 className="my-2 font-sans text-center font-bold text-ellipsis overflow-hidden whitespace-nowrap">{name}</h3>
             <h5 className="font-sans text-center">Price - ₹{price / 100} | Rating - {rating} 🌟</h5>
