@@ -41,7 +41,7 @@ const Header = () => {
             <div className="sm:hidden relative">
                 <button 
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="px-3 py-1 bg-gray-200 text-black font-sans italic rounded-md"
+                    className="px-3 py-1 bg-secondary text-black font-sans italic rounded-md"
                 >
                     ≡
                 </button>
@@ -65,7 +65,7 @@ const Header = () => {
                 )}
             </div>
 
-            <button className='px-4 py-1 bg-gray-200 text-black font-sans italic rounded-md ml-4' onClick={() => {
+            <button className='px-4 py-1 bg-secondary text-black font-sans italic rounded-md ml-4' onClick={() => {
                 setBtnLog(btnLog === "LogIn" ? "LogOut" : "LogIn");
             }}>
                 {btnLog}
