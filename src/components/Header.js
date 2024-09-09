@@ -41,7 +41,7 @@ const Header = () => {
             <div className="sm:hidden relative">
                 <button 
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
-                    className="px-3 py-2 bg-gray-200 text-black font-sans italic rounded-md"
+                    className="px-3 py-1 bg-gray-200 text-black font-sans italic rounded-md"
                 >
                     ≡
                 </button>
