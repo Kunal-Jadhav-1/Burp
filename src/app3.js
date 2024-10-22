@@ -6,6 +6,7 @@ import UserContext from '../src/utils/userContext';
 import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
 import { Provider } from "react-redux";
 import { store } from "./Store/reduxStore";
+import "./axiosConfig";
 
 const About = lazy(() => import("./components/About"));
 const ContactUs = lazy(() => import("./components/ContactUs"));

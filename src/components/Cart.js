@@ -86,6 +86,14 @@ const Cart = () => {
           <div>₹ {(foodTotal + foodTotal * 0.18 + (cartItems.length > 0 ? 30 : 0)).toFixed(2)}</div>
         </div>
       </div>
+      <div className="flex justify-center">
+        <button
+          className="w-full md:w-[20%] my-5 px-2 py-2 text-lg font-semibold bg-primary text-secondary rounded-lg hover:bg-tertiary hover:text-primary"
+          onClick={() => alert("Proceeding to payment")}
+        >
+          Proceed to Pay
+        </button>
+      </div>
     </div>
   );
 };

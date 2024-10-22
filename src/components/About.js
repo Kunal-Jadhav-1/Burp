@@ -14,7 +14,7 @@ const About = () => {
                     <li><span className='font-semibold'>Wide Variety:</span> Explore a diverse menu that caters to every palate. From comforting classics to exotic dishes, we've got something for everyone.</li>
                     <li><span className='font-semibold'>Easy Ordering:</span> Our user-friendly interface ensures that you can order your favorite meals in just a few taps.</li>
                     <li><span className='font-semibold'>Fast Delivery:</span> We partner with reliable delivery services to ensure that your food arrives hot and fresh.</li>
-                    <li><span className='font-semibold'>Local Love:</span> We support local businesses by featuring dishes from the best restaurants in your area.</li>
+                    <li><span className='font-semibold'>Local Love:</span> We are a local business featuring best dishes from all over the world.</li>
                 </ul>
                 <h3 className="text-xl font-semibold mb-2">Our Story</h3>
                 <p className="mb-4">

@@ -4,7 +4,7 @@ import { food } from "../utils/data";
 import Foods from "./Foods";
 import Shimmer from "./Shimmer";
 import Item from "./Item";  // Import the Popup component
-
+import axios from "axios";
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -18,14 +18,21 @@ const Body = () => {
     }, []);
 
     const fetchData = async () => {
-        const itemCards = food || [];
-        if (Array.isArray(itemCards)) {
-            setListOfRestaurants(itemCards);
-            setFilteredRestaurants(itemCards);
-        } else {
-            console.error("Fetched data is not an array:", itemCards);
+        try {
+            const response = await axios.get('http://localhost:5000/api/foods');
+            const itemCards = response.data;  // Access the data from the response
+            // console.log(itemCards);
+            if (Array.isArray(itemCards)) {
+                setListOfRestaurants(itemCards);
+                setFilteredRestaurants(itemCards);
+            } else {
+                console.error("Fetched data is not an array:", itemCards);
+            }
+        } catch (error) {
+            console.error("Error fetching food data:", error);
         }
     };
+
 
     const handleFoodClick = (food) => {
         setSelectedFood(food);
@@ -104,12 +111,12 @@ const Body = () => {
                     </button>
                 </div>
             </div>
-            <div className="flex flex-wrap mx-12 sm:mx-0 sm:items-center">
+            <div className="flex flex-wrap mx-12 md:px-20 lg:px-8 sm:mx-0 sm:items-center">
                 {filteredRestaurants.map(food => (
                     <div
                         key={food?.card?.info?.id}
                         onClick={() => handleFoodClick(food)}
-                        className="cursor-pointer"  
+                        className="cursor-pointer"
                     >
                         <Foods resData={food} listOfRestaurants={listOfRestaurants} />
                     </div>
