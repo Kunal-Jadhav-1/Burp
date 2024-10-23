@@ -4,7 +4,7 @@
   "description": "Food Delivery Website inspired by Swiggy",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html",
+    "build": "parcel build index.html --dist-dir dist",
     "test": "jest"
   },
   "repository": {
