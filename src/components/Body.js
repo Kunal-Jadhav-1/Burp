@@ -19,7 +19,7 @@ const Body = () => {
 
     const fetchData = async () => {
         try {
-            const response = await axios.get('http://localhost:5000/api/foods');
+            const response = await axios.get('https://burp-server.onrender.com/api/foods');
             const itemCards = response.data;  // Access the data from the response
             // console.log(itemCards);
             if (Array.isArray(itemCards)) {
