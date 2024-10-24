@@ -21,7 +21,7 @@ const Body = () => {
         try {
             const response = await axios.get('https://burp-server.onrender.com/api/foods');
             const itemCards = response.data;  // Access the data from the response
-            // console.log(itemCards);
+            console.log(itemCards);
             if (Array.isArray(itemCards)) {
                 setListOfRestaurants(itemCards);
                 setFilteredRestaurants(itemCards);
