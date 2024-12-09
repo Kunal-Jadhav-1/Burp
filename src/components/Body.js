@@ -1,6 +1,4 @@
 import { useEffect, useState, useContext } from "react";
-import UserContext from '../utils/userContext';
-import { food } from "../utils/data";
 import Foods from "./Foods";
 import Shimmer from "./Shimmer";
 import Item from "./Item";
