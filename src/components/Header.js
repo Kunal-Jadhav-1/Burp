@@ -3,13 +3,12 @@ import { useState, useContext } from "react";
 import { Link } from 'react-router-dom';
 import UserContext from '../utils/userContext';
 import { useSelector } from 'react-redux';
+import { SignInButton, UserButton, SignedIn, SignedOut } from '@clerk/clerk-react';
 
 const Header = () => {
-    const [btnLog, setBtnLog] = useState("LogIn");
     const [isDropdownOpen, setIsDropdownOpen] = useState(false); // State for dropdown
 
     const userData = useContext(UserContext);
-    const { loggedInUser } = userData;
 
     const cartItems = useSelector((store) => store.cart);
 
@@ -32,14 +31,14 @@ const Header = () => {
                     </li>
                     <li>
                         <Link to="/cart" className='px-2 py-1 hover:text-cyan-600 cursor-pointer'>
-                            Cart <span className='bg-accent text-primary rounded-full px-2 py-1 text-[11px]'>{cartItems.length}</span>
+                            Cart <span className='bg-accent text-primary rounded-md px-2 py-1 text-[16px] ml-1 font-bold'>{cartItems.length}</span>
                         </Link>
                     </li>
                 </ul>
             </div>
 
             <div className="sm:hidden relative">
-                <button 
+                <button
                     onClick={() => setIsDropdownOpen(!isDropdownOpen)}
                     className="px-7 py-1 bg-secondary text-black font-sans italic rounded-md"
                 >
@@ -65,11 +64,18 @@ const Header = () => {
                 )}
             </div>
 
-            <button className='px-4 py-1 bg-secondary text-black font-sans italic rounded-md ml-4' onClick={() => {
-                setBtnLog(btnLog === "LogIn" ? "LogOut" : "LogIn");
-            }}>
-                {btnLog}
-            </button>
+            <div className='mx-5'>
+                <SignedOut>
+                    <SignInButton mode='modal'>
+                        <button className=" px-2 py-1 font-bold rounded-full border-2 border-secondary hover:border-accent text-secondary bg-primary hover:text-accent  cursor-pointer">
+                            Sign In
+                        </button>
+                    </SignInButton>
+                </SignedOut>
+                <SignedIn>
+                    <UserButton />
+                </SignedIn>
+            </div>
         </div>
     );
 };

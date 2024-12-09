@@ -3,15 +3,19 @@ import UserContext from '../utils/userContext';
 import { food } from "../utils/data";
 import Foods from "./Foods";
 import Shimmer from "./Shimmer";
-import Item from "./Item";  // Import the Popup component
+import Item from "./Item";
 import axios from "axios";
+import { useUser } from '@clerk/clerk-react';
+
 const Body = () => {
     const [listOfRestaurants, setListOfRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [selectedFood, setSelectedFood] = useState(null); // State to manage selected food item
 
-    const { loggedInUser } = useContext(UserContext);
+    const { user } = useUser();
+
+    const displayName = user?.firstName || user?.username
 
     useEffect(() => {
         fetchData();
@@ -70,18 +74,22 @@ const Body = () => {
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-secondary my-0'>
             <div className="my-4 text-center p-2 text-lg text-primary">
-                <p>
-                    "Sup <b>{loggedInUser}</b>, These are the dishes we got for you today !!!"
-                </p>
+                {user ? (
+                    <p>
+                        "Sup <b>{displayName}</b>, These are the dishes we got for you today !!!"
+                    </p>
+                ) : (<p>
+
+                </p>)}
             </div>
             <div className="flex flex-col px-4 sm:px-14">
                 <div className="flex flex-col md:flex-row w-full md:w-[50%] mb-4 md:space-x-3">
                     <input
                         type="text"
-                        className="p-2 bg-[#f2fbff] border border-solid border-secondary text-primary font-serif font-light rounded-md w-full md:w-[80%] mb-2 md:mb-0 items-center"
+                        className="p-2 bg-[#f2fbff] border border-solid border-secondary text-primary font-serif font-light rounded-md w-full md:w-[50%] mb-2 md:mb-0 items-center"
                         value={searchText}
                         onChange={(e) => setSearchText(e.target.value)}
-                        placeholder="Search.."
+                        placeholder="Search....."
                     />
                     <button
                         className="px-4 py-2 border border-solid border-secondary bg-primary text-secondary rounded-lg hover:bg-secondary hover:text-primary font-sans italic w-full md:w-[30%]"
