@@ -4,7 +4,7 @@
   "description": "Food Delivery Website inspired by Swiggy",
   "scripts": {
     "start": "parcel index.html",
-    "build": "parcel build index.html --no-scope-hoist",
+    "build": "parcel build index.html --no-scope-hoist --dist-dir dist",
     "test": "jest",
     "vercel-build": "PARCEL_WORKER_BACKEND=minified npm run build"
   },
