@@ -1,4 +1,5 @@
 import 'dynamic-import-polyfill';
+
 import React, { lazy, Suspense, useState, useEffect } from "react";
 import ReactDOM from "react-dom/client";
 import { ClerkProvider } from "@clerk/clerk-react";
