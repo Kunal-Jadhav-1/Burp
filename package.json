@@ -5,7 +5,8 @@
   "scripts": {
     "start": "parcel index.html",
     "build": "parcel build index.html --dist-dir dist",
-    "test": "jest"
+    "test": "jest",
+    "vercel-build": "PARCEL_WORKER_BACKEND=minified npm run build"
   },
   "repository": {
     "type": "git",
