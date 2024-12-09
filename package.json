@@ -8,10 +8,6 @@
     "test": "jest",
     "vercel-build": "PARCEL_WORKER_BACKEND=minified npm run build"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Kunal-Jadhav-1/Burp.git"
-  },
   "author": "Kunal Jadhav",
   "license": "ISC",
   "bugs": {
