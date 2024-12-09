@@ -53,6 +53,6 @@
     "react-router-dom": "^6.28.0"
   },
   "engines": {
-    "node": "22.x"
+    "node": "16.x"
   }
 }
