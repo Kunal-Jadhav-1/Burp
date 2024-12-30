@@ -20,7 +20,7 @@ const Header = () => {
             </div>
 
             <div className="hidden sm:block navi">
-                <ul className='flex text-secondary place-items-center space-x-4'>
+                <ul className='flex text-secondary font-semibold place-items-center space-x-4'>
                     <li>
                         <Link to="/" className='px-2 py-1 hover:text-cyan-600 cursor-pointer'>Home</Link>
                     </li>
@@ -46,15 +46,15 @@ const Header = () => {
                     ≡
                 </button>
                 {isDropdownOpen && (
-                    <ul className="absolute left-0 top-full mt-2 bg-white border rounded-lg shadow-lg w-40">
+                    <ul className="absolute left-0 top-full mt-2 font-semibold bg-secondary text-primary border rounded-lg shadow-lg w-40">
                         <li>
-                            <Link to="/" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer'>Home</Link>
+                            <Link to="/" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer border border-b-primary'>Home</Link>
                         </li>
                         <li>
-                            <Link to="/about" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer'>About</Link>
+                            <Link to="/about" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer border border-b-primary'>About</Link>
                         </li>
                         <li>
-                            <Link to="/contact-us" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer'>Contact</Link>
+                            <Link to="/contact-us" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer border border-b-primary'>Contact</Link>
                         </li>
                         <li>
                             <Link to="/cart" className='block px-4 py-2 hover:bg-gray-100 cursor-pointer'>
@@ -65,7 +65,7 @@ const Header = () => {
                 )}
             </div>
 
-            <button className='px-4 py-1 bg-secondary text-black font-sans italic rounded-md ml-4' onClick={() => {
+            <button className='px-4 py-1 bg-primary text-accent border-4 border-accent font-sans font-bold italic rounded-3xl ml-4' onClick={() => {
                 setBtnLog(btnLog === "LogIn" ? "LogOut" : "LogIn");
             }}>
                 {btnLog}
