@@ -22,6 +22,33 @@ const Cart = () => {
     return cartItems.reduce((acc, item) => acc + (item.card.info.price / 100) * item.card.info.quantity, 0);
   }, [cartItems]);
 
+  const handlePayment = async () => {
+    const totalAmount = (foodTotal + foodTotal * 0.18 + (cartItems.length > 0 ? 30 : 0)).toFixed(2);
+
+    const options = {
+      key: "rzp_test_1DP5mmOlF5G5ag", 
+      amount: totalAmount * 100, 
+      currency: "INR",
+      name: "Demo Project",
+      description: "Food Order Payment",
+      handler: function (response) {
+        alert(`Payment Successful! Payment ID: ${response.razorpay_payment_id}`);
+        handleClearCart();
+      },
+      prefill: {
+        name: "John Doe",
+        email: "john.doe@example.com",
+        contact: "9999999999",
+      },
+      theme: {
+        color: "#3399cc",
+      },
+    };
+
+    const paymentObject = new window.Razorpay(options);
+    paymentObject.open();
+  };
+
   return (
     <div className="m-5 p-3 w-9/12 mx-auto px-6 bg-secondary text-primary rounded-2xl italic">
       <div className="text-center m-5 cursor-pointer text-4xl font-extrabold">
@@ -45,9 +72,9 @@ const Cart = () => {
                 <div className="lg:w-[96px] md:w-[64px] w-[48px]">
                   <img src={item.card.info.imageId} className="rounded mx-1 border border-primary" alt={item.card.info.name} />
                 </div>
-                <div 
-                  className="text-lg font-semibold text-primary mx-1 overflow-hidden whitespace-nowrap text-ellipsis" 
-                  style={{ maxWidth: '150px' }} 
+                <div
+                  className="text-lg font-semibold text-primary mx-1 overflow-hidden whitespace-nowrap text-ellipsis"
+                  style={{ maxWidth: '150px' }}
                   title={item.card.info.name}
                 >
                   {item.card.info.name}
@@ -89,7 +116,7 @@ const Cart = () => {
       <div className="flex justify-center">
         <button
           className="w-full md:w-[20%] my-5 px-2 py-2 text-lg font-semibold bg-primary text-secondary rounded-lg hover:bg-tertiary hover:text-primary"
-          onClick={() => alert("Proceeding to payment")}
+          onClick={handlePayment}
         >
           Proceed to Pay
         </button>
