@@ -48,7 +48,7 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
                     : cartItem
             );
             dispatch(updateCartItem(updatedCartItems));
-            console.log("item quantity updated");
+            //console.log("item quantity updated");
         }
 
         // console.log(cartItems);

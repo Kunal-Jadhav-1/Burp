@@ -10,8 +10,16 @@ const Body = () => {
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
     const [selectedFood, setSelectedFood] = useState(null); // State to manage selected food item
+    const [userInfo, setUserInfo] = useState(null);
 
-    const { loggedInUser } = useContext(UserContext);
+
+    useEffect(() => {
+        const storedData = localStorage.getItem('user-info');
+        if (storedData) {
+            const userData = JSON.parse(storedData);
+            setUserInfo(userData);
+        }
+    }, []);
 
     useEffect(() => {
         fetchData();
@@ -70,9 +78,9 @@ const Body = () => {
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-secondary my-0'>
             <div className="my-4 text-center p-2 text-lg text-primary">
-                <p>
-                    "Sup <b>{loggedInUser}</b>, These are the dishes we got for you today !!!"
-                </p>
+                <span>
+                    "Sup <b>{userInfo?.name ? userInfo.name : "Foodie"}</b>, These are the dishes we got for you today !!!"
+                </span>
             </div>
             <div className="flex flex-col px-4 sm:px-14">
                 <div className="flex flex-col md:flex-row w-full md:w-[50%] mb-4 md:space-x-3">

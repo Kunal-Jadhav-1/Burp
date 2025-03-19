@@ -1,12 +1,14 @@
-import React, { lazy, Suspense, useState, useEffect } from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
+import { Provider } from "react-redux";
+import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
+import { GoogleOAuthProvider } from "@react-oauth/google";
 import Header from "./components/Header";
 import Error from "./components/Error";
-import UserContext from '../src/utils/userContext';
-import { createBrowserRouter, RouterProvider, Outlet } from 'react-router-dom';
-import { Provider } from "react-redux";
+import UserContext from "./utils/userContext";
 import { store } from "./Store/reduxStore";
-import "./axiosConfig";
+import GoogleLogin from "./components/GoogleLogin";
+import ProtectedRoute from "./components/ProtectedRoute"; // Import the protected route
 
 const About = lazy(() => import("./components/About"));
 const ContactUs = lazy(() => import("./components/ContactUs"));
@@ -14,18 +16,9 @@ const Body = lazy(() => import("./components/Body"));
 const Cart = lazy(() => import("./components/Cart"));
 
 const AppLayout = () => {
-    const [userName, setUserName] = useState();
-
-    useEffect(() => {
-        const info = {
-            name: "Kunal",
-        };
-        setUserName(info.name);
-    }, []);
-
     return (
         <Provider store={store}>
-            <UserContext.Provider value={{ loggedInUser: userName, setUserName }}>
+            <UserContext.Provider value={{ user: null }}>
                 <div className="flex flex-col min-h-screen bg-secondary font-sans italic">
                     <Header />
                     <div className="flex-grow">
@@ -33,7 +26,17 @@ const AppLayout = () => {
                     </div>
                 </div>
             </UserContext.Provider>
+
         </Provider>
+    );
+};
+
+const GoogleAuthWrapper = () => {
+    return (
+        <GoogleOAuthProvider clientId={process.env.REACT_APP_CLIENT_ID}>
+            <GoogleLogin />
+        </GoogleOAuthProvider>
+
     );
 };
 
@@ -59,8 +62,18 @@ const appRouter = createBrowserRouter([
             },
             {
                 path: "/cart",
-                element: <Suspense fallback={<h1>Loading....... </h1>}> <Cart /> </Suspense>,
+                element: (
+                    <ProtectedRoute>
+                        <Suspense fallback={<h1>Loading....... </h1>}>
+                            <Cart />
+                        </Suspense>
+                    </ProtectedRoute>
+                ),
                 errorElement: <Error />,
+            },
+            {
+                path: "/login",
+                element: <Suspense fallback={<h1>Loading....... </h1>}> <GoogleAuthWrapper /> </Suspense>,
             },
         ],
         errorElement: <Error />,
