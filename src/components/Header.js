@@ -2,6 +2,7 @@ import logo from '../images/logo.png';
 import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 const Header = () => {
     const [btnLog, setBtnLog] = useState("LogIn");
@@ -20,6 +21,8 @@ const Header = () => {
         }
     }, []);
 
+
+    const navigate = useNavigate();
     // Handle Login/Logout
     const handleAuth = () => {
         if (userInfo) {
@@ -30,9 +33,7 @@ const Header = () => {
             window.location.reload();
         } else {
             // Redirect to OAuth login
-            window.location.href = "https://burp-six.vercel.app/login";  
-            // https://burp-six.vercel.app
-            //http://localhost:1234
+            navigate("/login"); 
         }
     };
 
