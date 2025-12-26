@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-import logo from "../images/logo.png"
+const logo = new URL("../images/logo.png", import.meta.url).href;
 
 const Header = () => {
     const [btnLog, setBtnLog] = useState("LogIn");

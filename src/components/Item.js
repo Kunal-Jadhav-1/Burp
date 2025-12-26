@@ -2,17 +2,20 @@ import { useState, useEffect } from "react";
 import { useSelector, useDispatch } from 'react-redux';
 import { addToCart, updateCartItem, removeFromCart } from "../Store/cartSlice";
 
-const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
-    const [favourite, setFavourite] = useState(item.card.info.favourite);
-    
+const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants, toggleFavourite }) => {
     // Set initial quantity based on the cart item
     const cartItems = useSelector((state) => state.cart);
     const initialCartItem = cartItems.find(cartItem => cartItem.card.info.id === item.card.info.id);
     const [quantity, setQuantity] = useState(initialCartItem ? initialCartItem.card.info.quantity : 0);
+    const [localFavourite, setLocalFavourite] = useState(item.card.info.favourite);
 
     useEffect(() => {
-        setFavourite(item.card.info.favourite);
-    }, [item]);
+        setLocalFavourite(item.card.info.favourite);
+    }, [item.card.info.favourite]);
+
+
+
+    const favourite = item?.card?.info?.favourite;
 
     const dispatch = useDispatch();
 
@@ -115,26 +118,26 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
         }
     };
 
-    const toggleFavourite = () => {
-        const updatedFavourite = favourite === 1 ? 0 : 1;
-        const updatedRestaurants = listOfRestaurants.map((restaurant) =>
-            restaurant.card.info.id === item.card.info.id
-                ? {
-                    ...restaurant,
-                    card: {
-                        ...restaurant.card,
-                        info: {
-                            ...restaurant.card.info,
-                            favourite: updatedFavourite,
-                        },
-                    },
-                }
-                : restaurant
-        );
+    // const toggleFavourite = () => {
+    //     const updatedFavourite = favourite === 1 ? 0 : 1;
+    //     const updatedRestaurants = listOfRestaurants.map((restaurant) =>
+    //         restaurant.card.info.id === item.card.info.id
+    //             ? {
+    //                 ...restaurant,
+    //                 card: {
+    //                     ...restaurant.card,
+    //                     info: {
+    //                         ...restaurant.card.info,
+    //                         favourite: updatedFavourite,
+    //                     },
+    //                 },
+    //             }
+    //             : restaurant
+    //     );
 
-        setListOfRestaurants(updatedRestaurants);
-        setFavourite(updatedFavourite); // Update local state for immediate UI feedback
-    };
+    //     setListOfRestaurants(updatedRestaurants);
+    //     setFavourite(updatedFavourite); // Update local state for immediate UI feedback
+    // };
 
     const { name, price, description, imageId, ratings } = item.card.info;
 
@@ -164,8 +167,12 @@ const Item = ({ item, onClose, setListOfRestaurants, listOfRestaurants }) => {
                             <button className="my-4 bg-primary text-tertiary border border-t-primary border-b-primary px-4 py-2 rounded-r-md" onClick={incrementQuantity}>+</button>
                         </div>
                     )}
-                    <button className="my-4 bg-primary text-tertiary px-4 py-2 rounded-md" onClick={toggleFavourite}>
-                        {favourite === 1 ? '"Un"Favourite ❤️' : 'Favourite ❤️'}
+                    <button className="my-4 bg-primary text-tertiary px-4 py-2 rounded-md"
+                        onClick={() => {
+                            toggleFavourite(item.card.info.id);
+                            setLocalFavourite(prev => (prev === 1 ? 0 : 1));
+                        }}>
+                        {localFavourite === 1 ? '"Un"Favourite ❤️' : 'Favourite ❤️'}
                     </button>
                 </div>
             </div>

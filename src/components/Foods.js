@@ -1,15 +1,12 @@
 import { useState, useEffect } from "react";
-import heartSolid from "../images/heartSolid.png";
+const heartSolid = new URL("../images/heartSolid.png", import.meta.url).href;
 
-const Foods = ({ resData, listOfRestaurants }) => {
+
+const Foods = ({ resData }) => {
     const { name, price, imageId } = resData?.card?.info || {};
     const rating = resData?.card?.info?.ratings?.aggregatedRating?.rating || 'N/A';
 
-    const [favourite, setFavourite] = useState(resData?.card?.info?.favourite);
-
-    useEffect(() => {
-        setFavourite(resData?.card?.info?.favourite);
-    }, [listOfRestaurants]);
+    const favourite = resData?.card?.info?.favourite;
 
     return (
         <div className="relative m-4 px-2 pt-2 pb-4 w-full sm:w-64 h-auto bg-gray-150 rounded-lg hover:shadow-gray-700 hover:shadow-2xl hover:border border-tertiary hover:bg-tertiary group  md:text-base text-sm sm:items-start">

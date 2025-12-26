@@ -28,7 +28,7 @@ const Body = () => {
     const fetchData = async () => {
         try {
             const response = await axios.get('https://burp-server.onrender.com/api/foods');
-            const itemCards = response.data;  // Access the data from the response
+            const itemCards = response.data;
             // console.log(itemCards);
             if (Array.isArray(itemCards)) {
                 setListOfRestaurants(itemCards);
@@ -74,6 +74,31 @@ const Body = () => {
         );
         setFilteredRestaurants(favourites);
     };
+
+    const toggleFavourite = (id) => {
+        setListOfRestaurants(prev => {
+            const updated = prev.map(restaurant =>
+                restaurant.card.info.id === id
+                    ? {
+                        ...restaurant,
+                        card: {
+                            ...restaurant.card,
+                            info: {
+                                ...restaurant.card.info,
+                                favourite:
+                                    restaurant.card.info.favourite === 1 ? 0 : 1
+                            }
+                        }
+                    }
+                    : restaurant
+            );
+
+            setFilteredRestaurants(updated);
+
+            return updated;
+        });
+    };
+
 
     return listOfRestaurants.length === 0 ? <Shimmer /> : (
         <div className='bg-secondary my-0'>
@@ -130,7 +155,7 @@ const Body = () => {
                     </div>
                 ))}
             </div>
-            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants} />}
+            {selectedFood && <Item item={selectedFood} onClose={handleClosePopup} setListOfRestaurants={setListOfRestaurants} listOfRestaurants={listOfRestaurants} toggleFavourite={toggleFavourite} />}
         </div>
     );
 };
